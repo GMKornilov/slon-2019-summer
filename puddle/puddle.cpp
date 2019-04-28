@@ -67,13 +67,13 @@ signed main(){
                 continue;
             }
 
-            if(d[x + xx][y + yy] > d[x][y] + (field[x][y] == '@')){
-                d[x + xx][y + yy] = d[x][y] + (field[x][y] == '@');
+            if(d[x + xx][y + yy] > d[x][y] + (field[x + xx][y + yy] == '@')){
+                d[x + xx][y + yy] = d[x][y] + (field[x + xx][y + yy] == '@');
                 p[x + xx][y + yy] = {x, y};
                 len[x + xx][y + yy] = len[x][y] + 1;
             }
-            else if(d[x + xx][y + yy] == d[x][y] && len[x + xx][y + yy] >= len[x][y] + 1){
-                d[x + xx][y + yy] = d[x][y] + (field[x][y] == '@');
+            else if(d[x + xx][y + yy] == d[x][y] + (field[x + xx][y + yy] == '@') && len[x + xx][y + yy] >= len[x][y] + 1){
+                d[x + xx][y + yy] = d[x][y] + (field[x + xx][y + yy] == '@');
                 p[x + xx][y + yy] = {x, y};
                 len[x + xx][y + yy] = len[x][y] + 1;
             }
@@ -104,5 +104,5 @@ signed main(){
         }
         cout << '\n';
     }
-    cout << len[n - 1][m - 1];
+    cout << len[n - 1][m - 1] << " " << d[n - 1][m - 1];
 }
